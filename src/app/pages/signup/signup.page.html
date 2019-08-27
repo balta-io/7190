@@ -1,0 +1,32 @@
+<ion-content padding>
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col size-md="6">
+        <br>
+        <p text-center>
+          <img src="https://placehold.it/250x80" alt="Contacts" width="250">
+        </p>
+        <br>
+        <ion-list lines="none">
+          <ion-item>
+            <ion-input type="text" placeholder="Nome Completo">
+            </ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="email" placeholder="E-mail">
+            </ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input [type]="password" placeholder="Senha">
+            </ion-input>
+          </ion-item>
+        </ion-list>
+        <br>
+        <ion-button href="/login" color="primary" expand="full" size="large">
+          Cadastrar
+        </ion-button>
+        <ion-button href="/login" color="dark" fill="clear" expand="full">Cancelar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
