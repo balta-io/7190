@@ -1,0 +1,15 @@
+<ion-content color="primary">
+  <br>
+  <br>
+  <br>
+  <p class="ion-text-center" *ngIf="!image">
+    <video id="video" width="300" height="300" autoplay class="profile-picture camera-photo"></video>
+    <canvas id="canvas" style="display:none;" width="300" height="300" class="profile-picture"></canvas>
+  </p>
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button color="success" (click)="takePicture()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>POST</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-slides pager="true">
+      <ion-slide *ngFor="let filter of filters">
+        <img src="{{image}}" class="{{ filter }}" alt="">
+      </ion-slide>
+    </ion-slides>
+  </ion-card>
+  <ion-item>
+    <ion-icon name="pin" slot="start"></ion-icon>
+    <ion-label>
+      <small>Nenhuma localização</small>
+    </ion-label>
+    <ion-button fill="outline" slot="end">Ativar</ion-button>
+  </ion-item>
+</ion-content>

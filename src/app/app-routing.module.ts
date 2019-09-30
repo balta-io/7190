@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home2', loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule) },
   { path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule) },
-  { path: 'home', loadChildren: () => import('./pages/signup/signup.module').then(m => m.SignupPageModule) },
+  { path: 'signup', loadChildren: () => import('./pages/signup/signup.module').then(m => m.SignupPageModule) },
+  { path: 'home', canActivate: [AuthGuard], loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule) },
+  { path: 'post', canActivate: [AuthGuard], loadChildren: () => import('./pages/post/post.module').then(m => m.PostPageModule) },
+  { path: 'take-picture', canActivate: [AuthGuard], loadChildren: () => import('./pages/take-picture/take-picture.module').then(m => m.TakePicturePageModule) },
 ];
 
 @NgModule({

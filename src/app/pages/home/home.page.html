@@ -1,8 +1,15 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      <ion-label class="logo-black">baltagram</ion-label>
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-item>
+        <ion-avatar>
+          <img src="{{user.image}}">
+        </ion-avatar>
+      </ion-item>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -14,4 +21,11 @@
       </li>
     </ul>
   </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/take-picture">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
 </ion-content>

@@ -5,18 +5,23 @@
   </h1>
   <br><br>
   <ion-list lines="none">
-    <ion-item>
-      <ion-label position="floating">E-mail</ion-label>
-      <ion-input type="email"></ion-input>
-    </ion-item>
+    <form [formGroup]="form">
+      <ion-item>
+        <ion-label position="stacked">E-mail</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">Senha</ion-label>
-      <ion-input type="password"></ion-input>
-    </ion-item>
-    <br>
-    <ion-button ion-item color="light" expand="full" size="large" (click)="submit()">
-      CADASTRAR
-    </ion-button>
+      <ion-item>
+        <ion-label position="stacked">Senha</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+    </form>
   </ion-list>
+  <br>
+  <ion-button ion-item color="light" fill="outline" shape="round" expand="full" size="large" (click)="submit()">
+    Cadastrar
+  </ion-button>
+  <ion-button ion-item color="light" fill="clear" expand="full" (click)="cancel()">
+    Cancelar
+  </ion-button>
 </ion-content>
