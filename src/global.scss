@@ -25,16 +25,15 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-.text-center {
-    text-align: center;
+:root,
+:root[mode=ios],
+:root[mode=md] {
+    --ion-font-family: 'Be Vietnam', sans-serif !important;
 }
 
-.text-right {
-    text-align: right;
-}
-
-.profile-picture {
-    width: 250px;
-    height: 250px;
-    border-radius: 256px;
+.logo-white {
+    font-family: 'Dancing Script', cursive;
+    color: #FFF;
+    opacity: 0.8;
+    font-size: 36px;
 }

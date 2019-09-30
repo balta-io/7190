@@ -1,28 +1,17 @@
-<app-navbar></app-navbar>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content>
-  <ion-grid fixed>
-    <ion-row>
-      <ion-searchbar></ion-searchbar>
-
-      <ion-col size="12" size-xs="12" size-sm="4" size-md="3" size-lg="4" size-xl="3" *ngFor="let contact of contacts">
-        <ion-card>
-          <img src="https://picsum.photos/300/300" alt="Contact Name">
-          <ion-card-header>
-            <ion-card-subtitle>+55 11 97978-7788</ion-card-subtitle>
-            <ion-card-title>Contact Name Here</ion-card-title>
-          </ion-card-header>
-
-          <ion-card-content>
-            Contact Ocupation
-          </ion-card-content>
-
-          <ion-item href="/contacts/XPTO" class="activated">
-            <ion-icon name="information-circle" slot="start"></ion-icon>
-            <ion-label>More Details...</ion-label>
-          </ion-item>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <div class="ion-padding">
+    <ul>
+      <li class="text" *ngFor="let item of posts | async">
+        {{ item.title }}
+      </li>
+    </ul>
+  </div>
 </ion-content>

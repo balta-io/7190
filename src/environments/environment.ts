@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyD3-Gz7bvj99NP63PIgyWMNRKd4Q5meobs",
+    authDomain: "baltagram-5a765.firebaseapp.com",
+    databaseURL: "https://baltagram-5a765.firebaseio.com",
+    projectId: "baltagram-5a765",
+    storageBucket: "",
+    messagingSenderId: "424194333341",
+    appId: "1:424194333341:web:fc75bbd74367d5f3e3d274"
+  }
 };
 
 /*

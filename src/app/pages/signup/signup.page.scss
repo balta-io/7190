@@ -1,0 +1,23 @@
+ion-content {
+    --background: rgba(130, 46, 178, 1);
+    --background: -moz-linear-gradient(top, rgba(130, 46, 178, 1) 0%, rgba(215, 24, 91, 1) 100%);
+    --background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(130, 46, 178, 1)), color-stop(100%, rgba(215, 24, 91, 1)));
+    --background: -webkit-linear-gradient(top, rgba(130, 46, 178, 1) 0%, rgba(215, 24, 91, 1) 100%);
+    --background: -o-linear-gradient(top, rgba(130, 46, 178, 1) 0%, rgba(215, 24, 91, 1) 100%);
+    --background: -ms-linear-gradient(top, rgba(130, 46, 178, 1) 0%, rgba(215, 24, 91, 1) 100%);
+    --background: linear-gradient(to bottom, rgba(130, 46, 178, 1) 0%, rgba(215, 24, 91, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#822eb2', endColorstr='#d7185b', GradientType=0);
+
+    --ion-text-color: #fff;
+
+    ion-list {
+        --ion-background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+    }
+
+    ion-item {
+        --ion-background-color: rgba(255, 255, 255, 0);
+        --background-activated: rgba(255, 255, 255, 0);
+        --highlight-color-focused: rgba(255, 255, 255, 0.1);
+    }
+}

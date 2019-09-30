@@ -4,15 +4,23 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
 import { HomePage } from './home.page';
-import { ComponentsModule } from 'src/app/components/components.module';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ComponentsModule,
+    AngularFireModule.initializeApp(environment.firebase, 'baltagram'),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    AngularFireStorageModule,
     RouterModule.forChild([
       {
         path: '',

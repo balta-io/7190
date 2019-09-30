@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -6,26 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  public contacts: any[] = [];
+  posts: Observable<any[]>;
 
-  constructor() {
-    this.contacts.push({});
-    this.contacts.push({});
-    this.contacts.push({});
-    this.contacts.push({});
-    this.contacts.push({});
-    this.contacts.push({});
-    this.contacts.push({});
-    this.contacts.push({});
-    this.contacts.push({});
-    this.contacts.push({});
-    this.contacts.push({});
-    this.contacts.push({});
-    this.contacts.push({});
-    this.contacts.push({});
-    this.contacts.push({});
-    this.contacts.push({});
-    this.contacts.push({});
+  constructor(
+    db: AngularFirestore
+  ) {
+
+    this.posts = db.collection('posts').valueChanges();
   }
 
 }
