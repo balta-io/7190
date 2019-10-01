@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LoadingController, NavController, ToastController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -36,11 +37,8 @@ export class LoginPage implements OnInit {
     this.fbAuth.auth.signInWithEmailAndPassword(this.form.controls['email'].value, this.form.controls['password'].value)
       .then((data) => {
         loading.dismiss();
-        localStorage.setItem('baltagram.user', JSON.stringify({
-          name: '', // TODO salvar nome e imagem e depois ler
-          image: '',
-          email: data.user.email
-        }));
+        // TODO salvar nome e imagem e depois ler
+        localStorage.setItem('baltagram.user', JSON.stringify(new User('', data.user.email, '')));
         this.navCtrl.navigateRoot('home');
       })
       .catch((err) => {
@@ -55,11 +53,7 @@ export class LoginPage implements OnInit {
     this.fbAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
       .then((data) => {
         console.log(data);
-        localStorage.setItem('baltagram.user', JSON.stringify({
-          name: data.user.displayName,
-          image: data.user.photoURL,
-          email: data.user.email
-        }));
+        localStorage.setItem('baltagram.user', JSON.stringify(new User(data.user.displayName, data.user.email, data.user.photoURL)));
         this.navCtrl.navigateRoot('home');
       })
       .catch((err) => {

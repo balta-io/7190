@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { ViewController } from '@ionic/core';
+import { Post } from 'src/app/models/post.model';
 
 @Component({
   selector: 'app-take-picture',
@@ -36,7 +37,7 @@ export class TakePicturePage implements OnInit {
     var context = canvas.getContext('2d');
 
     context.drawImage(video, 0, 0, 350, 350);
-    sessionStorage.setItem('pic', canvas.toDataURL())
+    localStorage.setItem('baltagram.post', JSON.stringify(new Post(canvas.toDataURL(), '', '')));
 
     video.classList.add("animated");
     video.classList.add("flash");
