@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>Nova Atividade</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="close()">
+      <ion-button (click)="showCloseOptions()">
         <ion-icon slot="icon-only" name="close"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -23,7 +23,7 @@
     </ion-label>
     <ion-button fill="outline" slot="end" (click)="getLocation()">Ativar</ion-button>
   </ion-item>
-  <ion-button ion-item fill="clear" expand="full" *ngIf="post.location">
+  <ion-button ion-item fill="clear" expand="full" *ngIf="post.location" (click)="showMap()">
     <ion-icon name="pin" slot="start"></ion-icon>
     Ver Localização
   </ion-button>

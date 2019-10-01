@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'home', canActivate: [AuthGuard], loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule) },
   { path: 'post', canActivate: [AuthGuard], loadChildren: () => import('./pages/post/post.module').then(m => m.PostPageModule) },
   { path: 'take-picture', canActivate: [AuthGuard], loadChildren: () => import('./pages/take-picture/take-picture.module').then(m => m.TakePicturePageModule) },
+  { path: 'map', canActivate: [AuthGuard], loadChildren: () => import('./pages/map/map.module').then(m => m.MapPageModule) },
 ];
 
 @NgModule({
