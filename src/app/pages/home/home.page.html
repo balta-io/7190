@@ -5,7 +5,7 @@
     </ion-title>
     <ion-buttons slot="end">
       <ion-item>
-        <ion-avatar>
+        <ion-avatar (click)="showOptions()">
           <img src="{{user.image}}">
         </ion-avatar>
       </ion-item>
@@ -14,18 +14,13 @@
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    <ul>
-      <li class="text" *ngFor="let item of posts | async">
-        {{ item.title }}
-      </li>
-    </ul>
-  </div>
+  <ion-card *ngFor="let post of posts | async">
+    <img src="{{ post.image }}" alt="">
+  </ion-card>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button routerLink="/take-picture">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-
 </ion-content>

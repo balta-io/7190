@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { ToastController, NavController } from '@ionic/angular';
+import { ToastController, NavController, ActionSheetController } from '@ionic/angular';
 import { User } from 'src/app/models/user.model';
 
 @Component({
@@ -17,6 +17,7 @@ export class HomePage implements OnInit {
     db: AngularFirestore,
     private toastCtrl: ToastController,
     private navCtrl: NavController,
+    private actionSheetCtrl: ActionSheetController,
   ) {
     this.posts = db.collection('posts').valueChanges();
   }
@@ -40,6 +41,26 @@ export class HomePage implements OnInit {
       ]
     });
     toast.present();
+  }
+
+  async showOptions() {
+    const actionSheet = await this.actionSheetCtrl.create({
+      header: 'Opções',
+      buttons: [{
+        text: 'Logout',
+        role: 'destructive',
+        icon: 'power',
+        handler: () => {
+          localStorage.removeItem('baltagra.user');
+          this.navCtrl.navigateRoot("/login");
+        }
+      }, {
+        text: 'Cancelar',
+        icon: 'close',
+        role: 'cancel',
+      }]
+    });
+    await actionSheet.present();
   }
 
 }

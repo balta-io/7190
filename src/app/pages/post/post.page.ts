@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Post } from 'src/app/models/post.model';
 import { ToastController, NavController, AlertController } from '@ionic/angular';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-post',
@@ -12,6 +13,7 @@ export class PostPage implements OnInit {
   public filters: string[] = [];
 
   constructor(
+    private db: AngularFirestore,
     private toastCtrl: ToastController,
     private navCtrl: NavController,
     private alertCtrl: AlertController,
@@ -74,6 +76,16 @@ export class PostPage implements OnInit {
     });
 
     await alert.present();
+  }
+
+  saveLocal() {
+    localStorage.setItem('baltagram.post', JSON.stringify(this.post));
+  }
+
+  submit() {
+    this.db.collection('posts').add(this.post);
+    console.log(this.post);
+    this.navCtrl.navigateBack("/home");
   }
 
   close() {
