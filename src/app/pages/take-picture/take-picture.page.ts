@@ -36,7 +36,7 @@ export class TakePicturePage implements OnInit {
     var canvas = <any>document.getElementById('canvas');
     var context = canvas.getContext('2d');
 
-    context.drawImage(video, 0, 0, 350, 350);
+    context.drawImage(video, 0, 0, 1000, 1000);
     localStorage.setItem('baltagram.post', JSON.stringify(new Post(canvas.toDataURL(), '', '')));
 
     video.classList.add("animated");

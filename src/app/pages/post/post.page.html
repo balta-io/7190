@@ -32,7 +32,9 @@
     Ver Localização
   </ion-button>
   <br>
-  <ion-button ion-item fill="outline" shape="round" size="large" expand="block" (click)="submit()">
+
+  <ion-progress-bar [value]="percent/100" *ngIf="progress | async as percent"></ion-progress-bar>
+  <ion-button ion-item fill="outline" shape="round" size="large" expand="block" (click)="submit()" *ngIf="!progress">
     PUBLICAR
   </ion-button>
 </ion-content>
